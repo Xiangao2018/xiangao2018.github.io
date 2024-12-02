@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>行为型-命令模式 - Xiangao2018 的个人博客</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Xiangao2018 的个人博客</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">设计模式</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E3%80%81%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E3%80%81%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/" class="dropdown-item">创建型-简单工厂、工厂方法、抽象工厂</a>
+</li>
+                                    
+<li>
+    <a href="../%E8%A3%85%E9%A5%B0%E5%99%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="dropdown-item">结构型-装饰器设计模式</a>
+</li>
+                                    
+<li>
+    <a href="../%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="dropdown-item">结构型-适配器模式</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">行为型-命令模式</a>
+</li>
+                                    
+<li>
+    <a href="../%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="dropdown-item">行为型-策略模式</a>
+</li>
+                                    
+<li>
+    <a href="../%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/" class="dropdown-item">行为型-观察者模式</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">命令模式</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">案例一：餐厅顾客点餐</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">案例二：遥控器插槽案例</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#-command" class="nav-link">延伸-非要用 Command 模式吗？</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_6" class="nav-link">总结</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">命令模式</h1>
+<p>标签（空格分隔）： 设计模式 Swift</p>
+<hr />
+<div class="toc">
+<ul>
+<li><a href="#_1">命令模式</a><ul>
+<li><a href="#_2">案例一：餐厅顾客点餐</a></li>
+<li><a href="#_3">案例二：遥控器插槽案例</a><ul>
+<li><a href="#_4">简化处理：一个插槽</a></li>
+<li><a href="#_5">七个插槽</a></li>
+<li><a href="#undo">Undo 撤销操作</a><ul>
+<li><a href="#undo-simpleremotecontrol">Undo - SimpleRemoteControl 中简单取反处理</a></li>
+<li><a href="#undo-command">Undo - Command 协议中定义</a></li>
+</ul>
+</li>
+<li><a href="#-">延伸 - 宏命令</a></li>
+</ul>
+</li>
+<li><a href="#-command">延伸-非要用 Command 模式吗？</a></li>
+<li><a href="#_6">总结</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><strong>命令行模式是将请求（或称为方法调用）封装成对象</strong>，让动作的请求者与动作执行者解耦，动作的请求者无需知道具体的动作执行者，动作请求者只要知道如何发起请求即可。</p>
+<p>命令行模式涉及如下对象：</p>
+<ul>
+<li><strong>Command</strong>：声明执行操作的<strong>接口</strong>；</li>
+<li><strong>ConcreateCommand</strong>: 具体的 Command，这里需要将动作接受者（Receiver）绑定到该对象中，并实现 Command 接口定义的 <code>excute</code> 方法;</li>
+<li><strong>Receiver</strong>：动作最终执行者;</li>
+<li><strong>Invoker</strong>：执行命令的的对象或者动作;</li>
+<li><strong>Client</strong>：创建命令对象（Command）并且设定命令对象的接收者（Receiver），并将 Invoker 与命令关联起来。</li>
+</ul>
+<p>PS: 有些教程不会提到 Client 对象，但并不妨碍我们理解命令模式。</p>
+<h2 id="_2">案例一：餐厅顾客点餐</h2>
+<blockquote>
+<p>这个案例来自于 《Head First 设计模式》 第六章，主要目的帮助理解书中各种对象。</p>
+</blockquote>
+<p>顾客准备在餐馆用餐，顾客点好菜( CreateOrder )后交给服务员，服务员交给（takeCommand）厨房，并通知（orderUp），厨房的厨师（Cook）按照客户下的订单进行烹饪。</p>
+<pre><code>class Cook {
+    func makeCake() {
+        debugPrint( &quot;make cake&quot; )
+    }
+
+    func makeTurkey() {
+        debugPrint( &quot;make turkey&quot; )
+    }
+}
+
+protocol Command {
+    func excute()
+}
+
+class CakeCommand: Command {
+    let cook: Cook
+
+    init(cook: Cook) {
+        self.cook = cook
+    }
+
+    func excute() {
+        cook.makeCake()
+    }
+}
+
+class TurkeyCommand: Command {
+    let cook: Cook
+    init(cook: Cook) {
+        self.cook = cook
+    }
+
+    func excute() {
+        cook.makeTurkey()
+    }
+}
+
+/// client
+class Customer {
+    func createOrder() {
+
+        /// Invoker
+        let waitress = Waitress()
+
+        // Receiver
+        let cook = Cook()
+
+        /// Command: CakeCommand
+        /// Receiver Cook
+        let cakeCommand = CakeCommand(cook: cook)
+
+        /// Command:  TurkeyCommand
+        /// Receiver: cook
+        let turkeyCommand = TurkeyCommand(cook: cook)
+
+
+        /// setCommand
+        waitress.takeCommand(command: cakeCommand)
+        waitress.takeCommand(command: turkeyCommand)
+
+        /// trigger
+        waitress.orderUp()
+    }
+}
+
+class Waitress {
+
+    var commands: [Command] = []
+
+    func takeCommand(command: Command) {
+        self.commands.append(command)
+    }
+
+    func orderUp() {
+        self.commands.forEach( { $0.excute() } )
+    }
+}
+</code></pre>
+<p>在上面例子中，<code>Customer</code> 创建了命令（<code>CakeCommand</code>、<code>TurkeyCommand</code>），并将命令最终的执行者（<code>Cook</code>）绑定到命令中，再通过调用 <code>takeCommand</code> 将命令绑定到 <code>Invoker(Waitress)</code> 中。当 <code>Invoker(Waitress)</code> 触发 <code>orderUp</code> 后，让 <code>commands</code> 依次执行 <code>excute</code> 方法，最终使得 命令最终的执行者（<code>Cook</code>）去执行响应的动作（<code>cook.makeCake()</code> 和 <code>cook.makeTurkey()</code>）。</p>
+<p>通过上面的例子，你应该大概了解命令模式的大体流程：<strong>将方法封装成对象，解耦命令最终执行者与命令请求者</strong>。但上面的例子可能会给你造成一定的困惑，因为上面的最终执行者（Cook）是明确的，看起来好像是为了使用设计模式而使用设计模式。接下里请看案例二</p>
+<h2 id="_3">案例二：遥控器插槽案例</h2>
+<blockquote>
+<p>这个案例来自于 《Head First 设计模式》第六章命令模式</p>
+</blockquote>
+<p><img alt="" src="https://tva1.sinaimg.cn/large/e6c9d24egy1h4tztgkn43j20zj0u0dis.jpg" /></p>
+<p><strong>需求:</strong>现在有个遥控器有 7 个插槽，每个插槽上可以控制打开（on） 和关闭（off）两种状态，插槽的底部还有个（undo）状态，可以一键 undo 所有的插槽上的设备。</p>
+<p><strong>分析：</strong>遥控器不知道插槽上最终是哪个来执行，这只一种典型命令请求者（遥控器）与最终执行者（插槽上的设备）分离的状态。</p>
+<h3 id="_4">简化处理：一个插槽</h3>
+<p>这一篇，我们讨论的是命令模式，这里为了简化处理，先处理一个插槽情况</p>
+<pre><code>class Light {
+    func on() { debugPrint( &quot;Light on&quot;) }
+    func off() { debugPrint( &quot;Light off&quot;) }
+}
+
+protocol Command {
+    func excute()
+}
+
+class LightOnCommand: Command {
+    let light: Light
+
+    init(light: Light) { self.light = light }
+
+    func excute() { self.light.on()  }
+}
+
+class LightOffCommand: Command {
+    let light: Light
+
+    init(light: Light) { self.light = light }
+
+    func excute() { self.light.off()  }
+}
+
+
+class SimpleRemoteControl {
+    var slot: Command?
+
+    init() {}
+
+    func setCommand(command: Command) {
+        self.slot = command
+    }
+
+    func buttonWasPressed() {
+        self.slot?.excute()
+    }
+}
+
+</code></pre>
+<p>调用地方：</p>
+<pre><code>/// Receiver
+let light = Light()
+
+/// Command
+let lightOnCommand = LightOnCommand(light: light)
+
+/// Invoker
+let simpleRemoteControl = SimpleRemoteControl()
+
+/// 讲 Invoker 与 Command 关联起来
+simpleRemoteControl.setCommand(command: lightOnCommand)
+
+/// Invoker触发事件
+simpleRemoteControl.buttonWasPressed()
+</code></pre>
+<p>在上面例子中，我们封装了 <code>LightOnCommand</code> 的命令，然后 Invoker 在触发事件的时候，只要调用命令的 <code>excute()</code> 方法，而不用最终关心是谁进行最终的执行（这里最终是 <code>Light.on()</code>），从而达到最终执行者与请求者分离的情况。</p>
+<h3 id="_5">七个插槽</h3>
+<p>上面的一个插槽简化处理还不错，这里需要考虑所有的插槽，其实很简单，遥控器存储七对命令（on 和 off 为一对），当按钮按 on 或者 off 时，调用对应插槽命令的 <code>excute</code> 即可，因为命令中保存着最终的执行者。</p>
+<pre><code>class NoCommand: Command {
+    func excute() { }
+}
+
+class SimpleRemoteControl {
+
+    var onCommands: [Command] = Array(repeating: NoCommand(), count: 7)
+    var offCommands: [Command] = Array(repeating: NoCommand(), count: 7)
+
+    func setCommand(slot: Int, onCommand: Command, offCommand: Command) {
+        self.onCommands[slot] = onCommand
+        self.offCommands[slot] = offCommand
+    }
+
+    func onButtonWasPressed(at slot: Int) {        
+        self.onCommands[slot].excute()
+    }
+
+    func offButtonWasPressed(at slot: Int) {
+        self.offCommands[slot].excute()
+    }
+}
+
+</code></pre>
+<p>上面的实例中，<code>onCommands</code> 与 <code>offCommands</code> 默认使用 <code>NoCommand</code> 进行初始化，这是为了在调用的时候重复写判空代码。</p>
+<h3 id="undo">Undo 撤销操作</h3>
+<p>进行 Undo 的时候，需要考虑 Undo 命令放在哪里？ </p>
+<h4 id="undo-simpleremotecontrol">Undo - SimpleRemoteControl 中简单取反处理</h4>
+<p>第一反应是将 Undo 放到 <code>SimpleRemoteControl</code> 中，点击 <code>onButtonWasPressed</code> 时候，记下 <code>offCommand</code>, 点击 <code>offButtonWasPressed</code> 时候，记下 <code>onCommand</code>:</p>
+<pre><code>class SimpleRemoteControl {
+
+    var undoCommand: Command?
+
+    func onButtonWasPressed(at slot: Int) {
+        self.onCommands[slot].excute()
+
+        /// On 记下 Off 状态
+        self.undoCommand = self.offCommands[slot]
+    }
+
+    func offButtonWasPressed(at slot: Int) {
+        self.offCommands[slot].excute()
+
+        /// Off 记下 On 状态
+        self.undoCommand = self.onCommands[slot]
+    }
+
+    func undoButtonWasPressed() {
+        self.undoCommand?.excute()
+    }
+}
+</code></pre>
+<p>分析上面的代码，这里存在两个问题：</p>
+<ol>
+<li>实际项目中，可能并不是 on/off 两种状态，如果有第三种状态，那么就无法设置 undo 状态；</li>
+<li>无法处理连续的 Undo 操作。</li>
+</ol>
+<p>针对第一个问题: 假设风扇风速有三种状态: 高、中、低，那么在进行 Undo 的时候，需要记录上次的状态。 Command 模式中解耦了 <strong>Invoker</strong>（SimpleRemoteControl） 以及最终执行者（CeilingFan），因此无法在 SimpleRemoteControl 中获取 CeilingFan 状态。</p>
+<p>第二个问题更加明显，on 的时候，undoCommand 为 off, 当多次执行的时候，还是执行 offCommand, 这显然不合适。</p>
+<h4 id="undo-command">Undo - Command 协议中定义</h4>
+<p>为了处理上面第一个问题，我们需要将 Undo 操作设置在 Command 中（因为只有 Command 能获取到 Receiver 状态）。拿上面风扇的例子来说，可以如下设置</p>
+<pre><code class="language-swift">class CeilingFan {
+    enum Speed {
+        case off
+        case high
+        case medium
+        case low
+    }
+
+    var speed: Speed = .off
+}
+
+class CeilingFanHighCommand: Command {
+    let ceilingFan: CeilingFan
+
+    var previewSpeed: CeilingFan.Speed = .off
+
+    init(ceilingFan: CeilingFan) {
+        self.ceilingFan = ceilingFan
+    }
+
+    func excute() {
+        self.previewSpeed = self.ceilingFan.speed
+
+        self.ceilingFan.speed = .high
+
+        debugPrint( &quot;CeilingFanHighCommand, preview speed is \(self.previewSpeed)&quot; )
+    }
+
+    func undo() {
+        let speed = self.ceilingFan.speed
+        self.ceilingFan.speed = previewSpeed
+        self.previewSpeed = speed
+
+        debugPrint( &quot;CeilingFanHighCommand, undo to \(self.previewSpeed)&quot; )
+    }
+}
+
+class CeilingFanMediumCommand: Command { }
+class CeilingFanOffCommand: Command { }
+class CeilingFanLowCommand: Command { }
+
+</code></pre>
+<p>在 Ceiling 的命令中，每次执行 <code>excute</code> 前会记录 CeilingFan 上次的状态，在执行 undo 的时候，将状态置回去。</p>
+<p>调用</p>
+<pre><code class="language-swift">
+let ceilingFan = CeilingFan()
+
+let high = CeilingFanHighCommand(ceilingFan: ceilingFan)
+let medium = CeilingFanMediumCommand(ceilingFan: ceilingFan)
+let low = CeilingFanLowCommand(ceilingFan: ceilingFan)
+let off = CeilingFanOffCommand(ceilingFan: ceilingFan)
+
+let simpleRemoteControl = SimpleRemoteControl()
+simpleRemoteControl.setCommand(slot: 0, onCommand: high, offCommand: off)
+simpleRemoteControl.setCommand(slot: 1, onCommand: medium, offCommand: off)
+simpleRemoteControl.setCommand(slot: 2, onCommand: low, offCommand: off)
+
+simpleRemoteControl.onButtonWasPressed(at: 0)
+simpleRemoteControl.undoButtonWasPressed()
+
+simpleRemoteControl.onButtonWasPressed(at: 0)
+simpleRemoteControl.offButtonWasPressed(at: 0)
+simpleRemoteControl.undoButtonWasPressed()
+simpleRemoteControl.undoButtonWasPressed()
+
+</code></pre>
+<p>这个实例中，解决了上面的第一个 undo 状态问题，针对于第二个问题，也解决了部分。现在状态可以来回切换了</p>
+<pre><code>&quot;CeilingFanHighCommand, preview speed is off&quot;
+&quot;CeilingFanHighCommand, undo to high&quot;
+&quot;CeilingFanHighCommand, undo to off&quot;
+&quot;CeilingFanHighCommand, undo to high&quot;
+&quot;CeilingFanHighCommand, undo to off&quot;
+&quot;CeilingFanHighCommand, undo to high&quot;
+&quot;CeilingFanHighCommand, undo to off&quot;
+&quot;CeilingFanHighCommand, undo to high&quot;
+</code></pre>
+<p>显然上面的 Undo 显然与部分人设想的不一样，有时候希望 Undo 一直 undo 到最开始状态，而不仅仅在两个状态中切换，如果你需要这样，你可能最终设置栈来操作了，这不是本篇的内容了。</p>
+<h3 id="-">延伸 - 宏命令</h3>
+<p>在命令模式中，将 Receiver 绑定到命令中，然后执行 <code>excute</code> 或者 <code>undo</code>, 如果 Command 中存在多个Receiver，然后执行 <code>excute</code> 或 <code>undo</code> 时，遍历 Receiver 依次执行，这就是宏命令。</p>
+<p>例如：一键开启家庭的电视、音响、热水器、空调等等</p>
+<h2 id="-command">延伸-非要用 Command 模式吗？</h2>
+<p>本文讲述的是 Command 命令行模式，已经可以结束了。但是对上面的案例来说，有没有比它更好的方案来实现呢？ 现在来探索下。</p>
+<p>设想1：插槽上的设备有两种状态，on/off, 是否可以定义设置的接口</p>
+<pre><code>
+protocol SlotDevice {
+    func on()
+    func off()
+}
+
+class Light: SlotDevice {
+    func on() { debugPrint( &quot;Light on&quot;) }
+    func off() { debugPrint( &quot;Light off&quot;) }
+}
+</code></pre>
+<p>然后在调用地方</p>
+<pre><code>class SimpleRemoteControl {
+
+    var slots: [SlotDevice?] = Array(repeating: nil, count: 7)
+
+    func setDevice(slot: Int, device: SlotDevice) {
+        self.slots[slot] = device
+    }
+
+    func onButtonWasPressed(at slot: Int) {
+        self.slots[slot]?.on()
+    }
+
+    func offButtonWasPressed(at slot: Int) {
+        self.slots[slot]?.off()
+    }
+}
+
+</code></pre>
+<p>看起来简介很多，但是对于 CeilingFan 怎么设置呢?</p>
+<p>CeilingFan 并不是单纯的 on/off 状态，因此，我们需要使用<strong>适配器模式</strong>来进行适配.</p>
+<pre><code>class CeilingFan {
+    enum Speed {
+        case off
+        case high
+        case medium
+        case low
+    }
+
+    var speed: Speed = .off {
+        didSet {
+            debugPrint(&quot;set speed to \(self.speed)&quot;)
+        }
+    }
+}
+
+class CeilingFanAdapter: SlotDevice {
+
+    let ceilingFan: CeilingFan
+    let onSpeed: CeilingFan.Speed
+    let offSpeed: CeilingFan.Speed
+
+    init(ceilingFan: CeilingFan, onSpeed: CeilingFan.Speed, offSpeed: CeilingFan.Speed = .off) {
+        self.ceilingFan = ceilingFan
+        self.onSpeed = onSpeed
+        self.offSpeed = offSpeed
+    }
+
+    func on() {
+        self.ceilingFan.speed = self.onSpeed
+    }
+
+    func off() {
+        self.ceilingFan.speed = self.offSpeed
+    }
+}
+</code></pre>
+<p>在调用的地方：</p>
+<pre><code>
+let light = Light()
+
+let ceilingFan = CeilingFan()
+
+let high = CeilingFanAdapter(ceilingFan: ceilingFan, onSpeed: .high, offSpeed: .off)
+let medium = CeilingFanAdapter(ceilingFan: ceilingFan, onSpeed: .medium, offSpeed: .off)
+let low = CeilingFanAdapter(ceilingFan: ceilingFan, onSpeed: .low, offSpeed: .off)
+
+let simpleRemoteControl = SimpleRemoteControl()
+simpleRemoteControl.setDevice(slot: 0, device: light)
+simpleRemoteControl.setDevice(slot: 1, device: high)
+simpleRemoteControl.setDevice(slot: 2, device: medium)
+simpleRemoteControl.setDevice(slot: 3, device: low)
+
+simpleRemoteControl.onButtonWasPressed(at: 0)
+simpleRemoteControl.offButtonWasPressed(at: 0)
+
+simpleRemoteControl.onButtonWasPressed(at: 1)
+simpleRemoteControl.onButtonWasPressed(at: 2)
+simpleRemoteControl.onButtonWasPressed(at: 3)
+</code></pre>
+<p><strong>但是对于 Undo 呢？</strong></p>
+<pre><code>protocol SlotDevice {
+    func on()
+    func off()
+    func undo()
+}
+
+class Light: SlotDevice {
+
+    // 记住状态
+    var ison: Bool = false
+
+    func on() { debugPrint( &quot;Light on&quot;) }
+    func off() { debugPrint( &quot;Light off&quot;) }
+    func undo() {
+        self.ison ? self.off() : self.on()
+    }
+}
+
+
+class CeilingFan {
+    enum Speed {
+        case off
+        case high
+        case medium
+        case low
+    }
+
+    var speed: Speed = .off {
+        didSet {
+            debugPrint(&quot;set speed to \(self.speed)&quot;)
+        }
+    }
+}
+
+class CeilingFanAdapter: SlotDevice {
+
+    let ceilingFan: CeilingFan
+    let onSpeed: CeilingFan.Speed
+    let offSpeed: CeilingFan.Speed
+
+    // 记住状态
+    var previewSpeed: CeilingFan.Speed = .off
+
+    init(ceilingFan: CeilingFan, onSpeed: CeilingFan.Speed, offSpeed: CeilingFan.Speed = .off) {
+        self.ceilingFan = ceilingFan
+        self.onSpeed = onSpeed
+        self.offSpeed = offSpeed
+    }
+
+    func on() {
+        self.ceilingFan.speed = self.onSpeed
+        self.previewSpeed = self.ceilingFan.speed
+    }
+
+    func off() {
+        self.ceilingFan.speed = self.offSpeed
+
+        self.previewSpeed = self.ceilingFan.speed
+    }
+
+    func undo() {
+        let speed = self.ceilingFan.speed
+        self.ceilingFan.speed = self.previewSpeed
+
+        self.previewSpeed = speed                
+    }
+}
+
+
+
+class SimpleRemoteControl {
+
+    var slots: [SlotDevice?] = Array(repeating: nil, count: 7)
+
+    func setDevice(slot: Int, device: SlotDevice) {
+        self.slots[slot] = device
+    }
+
+    func onButtonWasPressed(at slot: Int) {
+        self.slots[slot]?.on()
+    }
+
+    func offButtonWasPressed(at slot: Int) {
+        self.slots[slot]?.off()
+    }
+
+    func undoButtonWasPressed() {
+        for slot in self.self.slots {
+            slot?.undo()
+        }
+    }
+}
+
+</code></pre>
+<p>似乎也能达到上面的效果, 完了？ 塌房了？</p>
+<h2 id="_6">总结</h2>
+<p>通过上面的实例，你可以了解到 Command 模式的优缺点，优点很明显：<strong>解耦了命令请求者与执行者。</strong> 但是缺点也很明显：<strong>每个动作都需要形成一个类，类型最后爆炸。</strong> 这个缺点在很大程度上会限制在实际项目中的使用。得益于现代语言的高级特性，我们也可以考虑使用其他的方式来进行实现类似的功能。</p>
+<p>尽管如此，这也不妨碍我们学习命令行模式--Over</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
