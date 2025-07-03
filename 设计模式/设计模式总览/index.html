@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>设计模式总览 - Xiangao2018 的个人博客</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Xiangao2018 的个人博客</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">设计模式</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">01-组件协作类</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../01-组件协作类/Observer.md" class="dropdown-item">Observer</a>
+</li>
+            
+<li>
+    <a href="../../01-组件协作类/Template Method.md" class="dropdown-item">Template Method</a>
+</li>
+            
+<li>
+    <a href="../../01-组件协作类/策略模式.md" class="dropdown-item">策略模式</a>
+</li>
+            
+<li>
+    <a href="../../01-组件协作类/组件协作模式.md" class="dropdown-item">组件协作模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">02-单一职责模式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../02-单一职责模式/Bridge.md" class="dropdown-item">Bridge</a>
+</li>
+            
+<li>
+    <a href="../../02-单一职责模式/Decorator.md" class="dropdown-item">Decorator</a>
+</li>
+            
+<li>
+    <a href="../../02-单一职责模式/单一职责模式.md" class="dropdown-item">单一职责模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">03-对象创建</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../03-对象创建/Abstract Factory.md" class="dropdown-item">Abstract Factory</a>
+</li>
+            
+<li>
+    <a href="../../03-对象创建/Factory Method.md" class="dropdown-item">Factory Method</a>
+</li>
+            
+<li>
+    <a href="../../03-对象创建/Prototype.md" class="dropdown-item">Prototype</a>
+</li>
+            
+<li>
+    <a href="../../03-对象创建/builder.md" class="dropdown-item">builder</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">04-接口隔离</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../04-接口隔离/Adapter 适配器.md" class="dropdown-item">Adapter 适配器</a>
+</li>
+            
+<li>
+    <a href="../../04-接口隔离/Facade(门面模式).md" class="dropdown-item">Facade(门面模式)</a>
+</li>
+            
+<li>
+    <a href="../../04-接口隔离/Mediator 中介者.md" class="dropdown-item">Mediator 中介者</a>
+</li>
+            
+<li>
+    <a href="../../04-接口隔离/Proxy(代理模式).md" class="dropdown-item">Proxy(代理模式)</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">05-状态变化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../05-状态变化/Memento 备忘录.md" class="dropdown-item">Memento 备忘录</a>
+</li>
+            
+<li>
+    <a href="../../05-状态变化/State 状态模式.md" class="dropdown-item">State 状态模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">06-数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../06-数据结构/Chain of Resposibility 职责链.md" class="dropdown-item">Chain of Resposibility 职责链</a>
+</li>
+            
+<li>
+    <a href="../../06-数据结构/Composite 组合.md" class="dropdown-item">Composite 组合</a>
+</li>
+            
+<li>
+    <a href="../../06-数据结构/Iterator 迭代器.md" class="dropdown-item">Iterator 迭代器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">07-行为变化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../07-行为变化/Command 命令模式.md" class="dropdown-item">Command 命令模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">08-领域问题</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../08-领域问题/Interpreter 解析器.md" class="dropdown-item">Interpreter 解析器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">创建型</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../创建型/简单工厂、工厂方法、抽象工厂.md" class="dropdown-item">简单工厂、工厂方法、抽象工厂</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">结构型</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../结构型/装饰器设计模式.md" class="dropdown-item">装饰器设计模式</a>
+</li>
+            
+<li>
+    <a href="../../结构型/适配器模式.md" class="dropdown-item">适配器模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">行为型</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../行为型/命令模式.md" class="dropdown-item">命令模式</a>
+</li>
+            
+<li>
+    <a href="../../行为型/策略模式.md" class="dropdown-item">策略模式</a>
+</li>
+            
+<li>
+    <a href="../../行为型/观察者模式.md" class="dropdown-item">观察者模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../设计模式总览.md" class="dropdown-item">设计模式总览</a>
+</li>
+                                    
+<li>
+    <a href="../../设计模式的分类.md" class="dropdown-item">设计模式的分类</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">设计模式总览</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">从面向对象谈起</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_5" class="nav-link">重新认识面向对象</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_9" class="nav-link">面向对象设计原则</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_10" class="nav-link">推荐书籍</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_11" class="nav-link">个人思考</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">设计模式总览</h1>
+<blockquote>
+<p>"每一个模式描述来了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。这样，你就能一次又一次地使用该方案而不必做重复劳动"</p>
+</blockquote>
+<h2 id="_2">从面向对象谈起</h2>
+<p><strong>底层思维</strong>：向下，如何把握机器底层从微观理解对象构造</p>
+<ul>
+<li>语言构造（语法）</li>
+<li>编译转换</li>
+<li>内存模型</li>
+<li>运行时机制</li>
+</ul>
+<p><strong>抽象思维</strong>： 向上，如何将我们的周围世界抽象为程序代码</p>
+<ul>
+<li>面向对象</li>
+<li>组件封装</li>
+<li>设计模式</li>
+<li>架构模式</li>
+</ul>
+<h3 id="_3">深入理解面向对象</h3>
+<p><strong>向下</strong>： 深入理解三大面向对象机制</p>
+<ul>
+<li>封装：隐藏内部实现ß</li>
+<li>继承：复用现有代码</li>
+<li>多态：改写对象行为</li>
+</ul>
+<p><strong>向上</strong>：深刻把握面向对象机制所带来的抽象的意义，理解如何使用这些机制来表达现实世界，掌握什么事"好的面向对象设计"</p>
+<p>软件复杂的原因在于：<strong>变化</strong>，解决<strong>变化</strong>大概有两种方式：分解与抽象</p>
+<ul>
+<li>分解：人们面对复杂性有一个常见的做法：即分而治之，将大问题分解为多个小问题，将负载问题分解为多个简单问题；</li>
+<li>抽象：更高层次来讲，人们处理复杂性有一个通用的技术，即抽象，由于不能掌握全部的复杂对象，我们选择忽略它的非本质细节，而去处理泛化和理想化了的对象模型；</li>
+</ul>
+<h3 id="_4">软件设计的目标</h3>
+<p>软件设计的金科玉律：<strong>复用</strong></p>
+<h2 id="_5">重新认识面向对象</h2>
+<h3 id="_6">理解隔离变化</h3>
+<ul>
+<li>从宏观层面来看，面向对象的构建方式更能适应软件的变化，能将变化带来的影响减为最最小</li>
+</ul>
+<h3 id="_7">各司其职</h3>
+<ul>
+<li>从微观层面来看，面向对象的方式更强调各个类的”责任“</li>
+<li>由于需求变化导致的新增类型不应该影响原来类型的视线---是所谓各负其责</li>
+</ul>
+<h3 id="_8">对象是什么？</h3>
+<ul>
+<li>从语言实现层面来看，对象封装了代码和数据</li>
+<li>从规格层面讲，对象是一系列可被使用的公共接口</li>
+<li>从概念层面讲, 对象是某种拥有责任的抽象</li>
+</ul>
+<h2 id="_9">面向对象设计原则</h2>
+<h3 id="1-dip">1. 依赖倒置原则（DIP）</h3>
+<ul>
+<li>高层模块（稳定）不应该依赖于低层模块（变化）， 二者都应该依赖于抽象（稳定）<ul>
+<li>MainFrame 依赖于 Shape， Line 和 Rectangle 依赖于 Shape</li>
+</ul>
+</li>
+<li>抽象（稳定）不应该依赖于实现细节（变化），实现细节应该依赖于抽象（稳定）<ul>
+<li>Shape 不应该含有Line 和 Shape 的实现细节</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-ocp">2. 开放封闭原则（OCP）</h3>
+<ul>
+<li>对扩展开发，对更改封闭</li>
+<li>类模块应该是可扩展的，但是不可修改</li>
+</ul>
+<h3 id="3-srp">3. 单一职责原则（SRP）</h3>
+<ul>
+<li>一个类应该仅有一个引起它变化的原因</li>
+<li>变化的方向隐含着类的责任</li>
+</ul>
+<h3 id="4-lsp">4. 里氏替换原则（LSP）</h3>
+<ul>
+<li>子类必须能够替换它们的基类（IS-A）</li>
+<li>继承表达类型的抽象</li>
+</ul>
+<h3 id="5-isp">5. 接口隔离原则（ISP）</h3>
+<ul>
+<li>不应该强迫客户程序依赖它们不用的方法；</li>
+<li>接口应该小而完备</li>
+</ul>
+<h3 id="6">6. 优先使用对象组合，而不是类继承</h3>
+<ul>
+<li>类继承通常为”白箱复用“，对象组合通常为”黑箱复用“；</li>
+<li>继承在某种程度上破坏了封装性，子类父类耦合度高；</li>
+<li>而对象组合只要求被组合的对象具有良好定义的接口，耦合度低；</li>
+</ul>
+<h3 id="7">7. 封装变化点</h3>
+<ul>
+<li>使用封装来创建对象之间的分界层，让设计者可以在分界层一侧进行修改，而不会对另一侧产生不良的影响，从而实现层次间的松耦合</li>
+</ul>
+<h3 id="8">8.针对接口编程，而不是针对实现编程</h3>
+<ul>
+<li>不将变量类型声明为某个特定的具体类，而是声明为某个具体类</li>
+<li>客户程序无需获知对象的具体类型，只需要知道对象所具有的接口；</li>
+<li>减少系统中各部分的依赖关系，从而实现 ”高内聚、松耦合“的类型设计方法；</li>
+</ul>
+<h2 id="_10">推荐书籍</h2>
+<ul>
+<li>《设计模式 可复用面向对象软件的基础》</li>
+<li>《重构-改善既有代码的设计》</li>
+<li>《重构与模式》</li>
+</ul>
+<h2 id="_11">个人思考</h2>
+<h3 id="1">思考1： 分解与抽象</h3>
+<p>分解与抽象在实际开发中的体现在于“责任问题”，即某个方法或者函数应该被谁来调用问题。 举例来说，你要在画板上画出 <strong>Line</strong>、<strong>Rectangle</strong>,这个 <strong>Draw</strong>应该由谁来处理</p>
+<h3 id="2">思考2：复用</h3>
+<p>很多人简单的理解为“Don't Repeat yourself”，所以将一个方法或者函数搞的及其的复杂，后续维护简直成了"屎上雕花"，造成后来改又不敢改，动又不敢动的问题</p>
+<h3 id="3">思考3: 抽象</h3>
+<p>尝试过很多次的抽象，但是在具体实现中，又会遇到各种的问题, 抽象过后，对上层接口来说，就是抽象的类型，如果需要针对具体类型进行特殊处理，改如何进行操作。</p>
+<p><strong>ChatGPT</strong>给了几个解决办法</p>
+<ol>
+<li>如果是通用抽象，在抽象类里面，例如 Shape 里面增加 Draw 方法</li>
+<li>
+<p>访问者设计模式，使用不同的 Visitor 进行处理 -- 如果特殊处理的行为比较多，访问者的模式就会显得有些复杂
+    ```
+    interface Shape {
+        void accept(ShapeVisitor visitor);
+    }</p>
+<p>class Circle implements Shape {
+    double radius = 5;</p>
+<pre><code>@Override
+public void accept(ShapeVisitor visitor) {
+    visitor.visit(this);
+}
+</code></pre>
+<p>}</p>
+<p>class Rectangle implements Shape {
+    double width = 4, height = 3;</p>
+<pre><code>@Override
+public void accept(ShapeVisitor visitor) {
+    visitor.visit(this);
+}
+</code></pre>
+<p>}</p>
+<p>// 访问者接口
+interface ShapeVisitor {
+    void visit(Circle c);
+    void visit(Rectangle r);
+}</p>
+<p>// 具体访问者实现：计算面积
+class AreaCalculator implements ShapeVisitor {
+    @Override
+    public void visit(Circle c) {
+        double area = Math.PI * c.radius * c.radius;
+        System.out.println("Circle area: " + area);
+    }</p>
+<pre><code>@Override
+public void visit(Rectangle r) {
+    double area = r.width * r.height;
+    System.out.println("Rectangle area: " + area);
+}
+</code></pre>
+<p>}</p>
+<p>```
+3. Map 映射方法</p>
+</li>
+</ol></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

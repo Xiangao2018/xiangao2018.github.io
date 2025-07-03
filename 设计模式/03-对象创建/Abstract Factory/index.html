@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
+        <title>抽象工厂模式 - Xiangao2018 的个人博客</title>
+        <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../../css/brands.min.css" rel="stylesheet">
+        <link href="../../../css/solid.min.css" rel="stylesheet">
+        <link href="../../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../../..">Xiangao2018 的个人博客</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">设计模式</a>
+                                <ul class="dropdown-menu">
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">01-组件协作类</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../01-组件协作类/Observer.md" class="dropdown-item">Observer</a>
+</li>
+            
+<li>
+    <a href="../../../01-组件协作类/Template Method.md" class="dropdown-item">Template Method</a>
+</li>
+            
+<li>
+    <a href="../../../01-组件协作类/策略模式.md" class="dropdown-item">策略模式</a>
+</li>
+            
+<li>
+    <a href="../../../01-组件协作类/组件协作模式.md" class="dropdown-item">组件协作模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">02-单一职责模式</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../02-单一职责模式/Bridge.md" class="dropdown-item">Bridge</a>
+</li>
+            
+<li>
+    <a href="../../../02-单一职责模式/Decorator.md" class="dropdown-item">Decorator</a>
+</li>
+            
+<li>
+    <a href="../../../02-单一职责模式/单一职责模式.md" class="dropdown-item">单一职责模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">03-对象创建</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../03-对象创建/Abstract Factory.md" class="dropdown-item">Abstract Factory</a>
+</li>
+            
+<li>
+    <a href="../../../03-对象创建/Factory Method.md" class="dropdown-item">Factory Method</a>
+</li>
+            
+<li>
+    <a href="../../../03-对象创建/Prototype.md" class="dropdown-item">Prototype</a>
+</li>
+            
+<li>
+    <a href="../../../03-对象创建/builder.md" class="dropdown-item">builder</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">04-接口隔离</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../04-接口隔离/Adapter 适配器.md" class="dropdown-item">Adapter 适配器</a>
+</li>
+            
+<li>
+    <a href="../../../04-接口隔离/Facade(门面模式).md" class="dropdown-item">Facade(门面模式)</a>
+</li>
+            
+<li>
+    <a href="../../../04-接口隔离/Mediator 中介者.md" class="dropdown-item">Mediator 中介者</a>
+</li>
+            
+<li>
+    <a href="../../../04-接口隔离/Proxy(代理模式).md" class="dropdown-item">Proxy(代理模式)</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">05-状态变化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../05-状态变化/Memento 备忘录.md" class="dropdown-item">Memento 备忘录</a>
+</li>
+            
+<li>
+    <a href="../../../05-状态变化/State 状态模式.md" class="dropdown-item">State 状态模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">06-数据结构</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../06-数据结构/Chain of Resposibility 职责链.md" class="dropdown-item">Chain of Resposibility 职责链</a>
+</li>
+            
+<li>
+    <a href="../../../06-数据结构/Composite 组合.md" class="dropdown-item">Composite 组合</a>
+</li>
+            
+<li>
+    <a href="../../../06-数据结构/Iterator 迭代器.md" class="dropdown-item">Iterator 迭代器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">07-行为变化</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../07-行为变化/Command 命令模式.md" class="dropdown-item">Command 命令模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">08-领域问题</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../08-领域问题/Interpreter 解析器.md" class="dropdown-item">Interpreter 解析器</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">创建型</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../创建型/简单工厂、工厂方法、抽象工厂.md" class="dropdown-item">简单工厂、工厂方法、抽象工厂</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">结构型</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../结构型/装饰器设计模式.md" class="dropdown-item">装饰器设计模式</a>
+</li>
+            
+<li>
+    <a href="../../../结构型/适配器模式.md" class="dropdown-item">适配器模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#" class="dropdown-item">行为型</a>
+    <ul class="dropdown-menu">
+            
+<li>
+    <a href="../../../行为型/命令模式.md" class="dropdown-item">命令模式</a>
+</li>
+            
+<li>
+    <a href="../../../行为型/策略模式.md" class="dropdown-item">策略模式</a>
+</li>
+            
+<li>
+    <a href="../../../行为型/观察者模式.md" class="dropdown-item">观察者模式</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li>
+    <a href="../../../设计模式总览.md" class="dropdown-item">设计模式总览</a>
+</li>
+                                    
+<li>
+    <a href="../../../设计模式的分类.md" class="dropdown-item">设计模式的分类</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">抽象工厂模式</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#_2" class="nav-link">动机</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_3" class="nav-link">模式的定义</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_4" class="nav-link">结构</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">抽象工厂模式</h1>
+<h2 id="_2">动机</h2>
+<ul>
+<li>
+<p>在软件系统中，经常面临着“一系列相互依赖的对象”的创建工作；同时，由于需求的变化，往往存在更多系列对象的创建工作</p>
+</li>
+<li>
+<p>如何应对这种变化，如何绕过常规的对象创建方法（new），提供一种“封装”机制来避免客户程序刚和这种多系列具体对象创建工作的紧耦合？ </p>
+</li>
+</ul>
+<pre><code class="language-c++">class EmployeeDAO {
+
+public:
+    vector&lt;EmployeeDO&gt; GetEMployees() {
+        SqlConnection *connection = new SqlConnection()
+        connection-&gt;ConnectionString = &quot;....&quot;
+
+        SqlCommand *command = new SqlCommand();
+        command-&gt;CommandText = &quot;....&quot;
+
+        SqlDataReader *reader = command-&gt;ExecuteReader()
+
+        while (reader-&gt;Read()) { ... }
+    }
+}
+
+</code></pre>
+<p>如果需要以后更换 SQL 的链接，那么就会产生问题,面向接口编程方式</p>
+<pre><code class="language-C++">class IDBConnection {} 
+class IDBCommand {} 
+class IDBDataReader {} 
+class IDBConnectionFactory {}
+
+class SqlConnection:  IDBConnection {} 
+class SqlCommand:  IDBCommand {} 
+class SqlDataReader:  IDBDataReader {} 
+
+class OracleConnection:  IDBConnection {} 
+class OracleCommand:  IDBCommand {} 
+class OracleDataReader:  IDBDataReader {} 
+
+
+class SQLDBConnectionFactory: IDBConnectionFactory {}
+
+class 
+
+class EmployeeDAO {
+
+public:
+    vector&lt;EmployeeDO&gt; GetEMployees() {
+        IDBConnection *connection = new SqlConnection()
+        connection-&gt;ConnectionString = &quot;....&quot;
+
+        IDBCommand *command = new SqlCommand();
+        command-&gt;CommandText = &quot;....&quot;
+
+        IDBDataReader *reader = command-&gt;ExecuteReader()
+
+        while (reader-&gt;Read()) { ... }
+    }
+}
+
+</code></pre>
+<h2 id="_3">模式的定义</h2>
+<p>提供一个接口，让该接口负责创建一系列“相关或者相互依赖的对象”，无需指定它们具体的类</p>
+<h2 id="_4">结构</h2>
+<p><img alt="" src="../Abstract%20Factory%20Structure.png" /></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../../js/base.js"></script>
+        <script src="../../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
